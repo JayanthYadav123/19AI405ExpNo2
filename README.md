@@ -82,6 +82,37 @@ path=[]
 traversedpath=dfs(graph,start,visited,path)
 print(traversedpath)
 ```
+```
+#import defaultdict
+from collections import defaultdict
+def dfs(graph,start,visited,path):
+    path.append(start)
+    visited[start]=True
+    for neighbour in graph[start]:
+        if visited[neighbour]==False:
+            dfs(graph,neighbour,visited,path)
+            visited[neighbour]=True
+    return path
+graph=defaultdict(list)
+n,e=map(int,input().split())
+for i in range(e):
+    u,v=map(str,input().split())
+    graph[u].append(v)
+    graph[v].append(u)
+#print(graph)
+start='0'
+visited=defaultdict(bool)
+path=[]
+traversedpath=dfs(graph,start,visited,path)
+print(traversedpath)
+
+```
+
+
+
+
+
+
 <h3>Sample Input</h3>
 <hr>
 8 9 <BR>
@@ -117,6 +148,12 @@ F H <BR>
 ['0', '1', '2', '3', '4']
 
 <hr>
+
+## Output:
+
+<img width="347" alt="image" src="https://github.com/JayanthYadav123/19AI405ExpNo2/assets/94836154/fe940711-7fc7-4f75-bd3b-982e1324647d">
+</br>
+<img width="291" alt="image" src="https://github.com/JayanthYadav123/19AI405ExpNo2/assets/94836154/d59b0fd7-92ed-4b74-9ef9-6c50ee4b62b8">
 
 <h3>Result:</h3>
 <hr>
